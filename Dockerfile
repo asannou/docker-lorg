@@ -8,6 +8,8 @@ RUN apk --no-cache add libjpeg-turbo libvpx libpng freetype \
   && docker-php-ext-install pcntl gd \
   && apk del .build-dependencies
 
+COPY php.ini /usr/local/etc/php/
+
 RUN apk --no-cache --virtual .build-dependencies add git \
   && git clone https://github.com/jensvoid/lorg.git /usr/src/lorg \
   && apk del .build-dependencies
