@@ -1,4 +1,4 @@
-FROM php:5-alpine
+FROM asannou/library-php:5-alpine
 
 WORKDIR /root
 
