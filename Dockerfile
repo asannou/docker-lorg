@@ -1,10 +1,10 @@
-FROM asannou/library-php:7.3-alpine
+FROM asannou/library-php:7.4-alpine
 
 WORKDIR /root
 
 RUN apk --no-cache add libjpeg-turbo libvpx libpng freetype \
   && apk --no-cache --virtual .build-dependencies add libjpeg-turbo-dev libvpx-dev libpng-dev freetype-dev \
-  && docker-php-ext-configure gd --with-jpeg-dir=/usr/include/ --with-vpx-dir=/usr/include/ --with-freetype-dir=/usr/include/ \
+  && docker-php-ext-configure gd --with-jpeg-dir=/usr/include/ --with-vpx-dir=/usr/include/ --with-freetype \
   && docker-php-ext-install pcntl gd \
   && apk del .build-dependencies
 
