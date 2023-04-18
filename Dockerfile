@@ -1,4 +1,4 @@
-FROM php:7.4-alpine
+FROM php:8-alpine
 
 WORKDIR /root
 
@@ -11,7 +11,7 @@ RUN apk --no-cache add libjpeg-turbo libwebp libpng freetype \
 COPY php.ini /usr/local/etc/php/
 
 RUN apk --no-cache --virtual .build-dependencies add git \
-  && git clone https://github.com/jensvoid/lorg.git /usr/src/lorg \
+  && git clone --depth=1 --branch php8 --single-branch https://github.com/asannou/lorg.git /usr/src/lorg \
   && apk del .build-dependencies
 
 RUN sed -i -E "s/(static \\\$phpids_path = ')[^']+/\1\/usr\/src\/lorg\/phpids\//g" /usr/src/lorg/lorg \
