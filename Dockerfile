@@ -1,4 +1,4 @@
-FROM php:8-alpine@sha256:a68a2baf908ae6c63e492c0b0aab150f475bd95e665bcfd5d41207458e694bf2
+FROM php:8-alpine@sha256:ea8cdb42a3def0a4d65226f9348fa4ea67ef9bbefb445200778f329c795e9b4b
 
 WORKDIR /root
 
